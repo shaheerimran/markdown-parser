@@ -23,6 +23,12 @@ public class MarkdownParse {
                 break;
             }
 
+            //Check if we've accidentally parsed an image link
+            if(markdown.charAt(0) == '!' || markdown.charAt(openBracket-1) == '!'){
+                currentIndex = closeParen + 1;
+                continue;
+            }
+
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
         }
