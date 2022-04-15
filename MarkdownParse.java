@@ -24,7 +24,12 @@ public class MarkdownParse {
             }
 
             //Check if we've accidentally parsed an image link
-            if(markdown.charAt(0) == '!' || markdown.charAt(openBracket-1) == '!'){
+            if(markdown.charAt(0) == '!'){ //If .md file starts with image
+                currentIndex = closeParen + 1;
+                continue;
+            }
+            //In all other cases
+            if(openBracket != 0 && markdown.charAt(openBracket-1) == '!'){
                 currentIndex = closeParen + 1;
                 continue;
             }
