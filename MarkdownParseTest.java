@@ -23,4 +23,51 @@ public class MarkdownParseTest {
         String testFileContent = Files.readString(testFile);
         assertEquals(expected, MarkdownParse.getLinks(testFileContent));
     }
+
+    @Test
+    public void getLinksTest2() throws IOException {
+        //Expected list to be returned
+        ArrayList<String> expected = new ArrayList<>();
+        
+        //Getting file contents
+        Path testFile = Path.of("test-file-2.md");
+        String testFileContent = Files.readString(testFile);
+        assertEquals(expected, MarkdownParse.getLinks(testFileContent));
+    }
+
+    @Test
+    public void getLinksTest3() throws IOException {
+        //Expected list to be returned
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("https://www.google.com/");
+        
+        //Getting file contents
+        Path testFile = Path.of("test-file-3.md");
+        String testFileContent = Files.readString(testFile);
+        assertEquals(expected, MarkdownParse.getLinks(testFileContent));
+    }
+
+    @Test
+    public void getLinksTest4() throws IOException {
+        //Expected list to be returned
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("google.com");
+        
+        //Getting file contents
+        Path testFile = Path.of("test-file-4.md");
+        String testFileContent = Files.readString(testFile);
+        assertEquals(expected, MarkdownParse.getLinks(testFileContent));
+    }
+
+    @Test
+    public void getLinksTest5() throws IOException {
+        //Expected list to be returned
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("google.com");
+        
+        //Getting file contents
+        Path testFile = Path.of("test-file-5.md");
+        String testFileContent = Files.readString(testFile);
+        assertEquals(expected, MarkdownParse.getLinks(testFileContent));
+    }
 }
