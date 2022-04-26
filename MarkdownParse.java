@@ -34,12 +34,6 @@ public class MarkdownParse {
                 continue;
             }
 
-            //If there's stuff between the brackets and parentheses
-            if(openBracket-closeParen != 1) {
-                currentIndex = closeParen + 1;
-                continue;
-            }
-
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
         }
