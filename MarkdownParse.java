@@ -34,6 +34,12 @@ public class MarkdownParse {
                 continue;
             }
 
+            //Make sure closed bracket is right next to parentheses
+            if(closeBracket != openParen - 1) {
+                currentIndex = closeParen + 1;
+                continue;
+            }
+
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
         }
