@@ -28,7 +28,7 @@ public class MarkdownParse {
                 currentIndex = closeParen + 1;
                 continue;
             }
-            //In all other cases
+            //In all other cases (in regards to image link checking)
             if(openBracket != 0 && markdown.charAt(openBracket-1) == '!'){
                 currentIndex = closeParen + 1;
                 continue;
@@ -36,6 +36,13 @@ public class MarkdownParse {
 
             //Make sure closed bracket is right next to parentheses
             if(closeBracket != openParen - 1) {
+                //Double check there's for another set of brackets in this space
+                if(markdown.substring(closeBracket, openParen).contains("[") && 
+                  markdown.substring(closeBracket, openParen).contains("]")) {
+                    currentIndex = markdown.substring(closeBracket, openParen).indexOf("[");
+                    continue;
+                }
+
                 currentIndex = closeParen + 1;
                 continue;
             }
